@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -16,7 +18,7 @@
         }
 
         body {
-            background-color: #f1cea6;
+            font-family: 'Nova Square', sans-serif;
         }
 
         .calculator {
@@ -33,6 +35,7 @@
         }
 
         .buttons {
+
             align-self: center;
             background-color: #d1bfb7;
             display: grid;
@@ -55,7 +58,7 @@
         .buttons__clear,
         .buttons__equal,
         .buttons__delete {
-
+            font-family: 'Nova Square', sans-serif;
             border-radius: 5px;
             font-size: 1.5rem;
             padding: 10px;
@@ -106,7 +109,7 @@
     <div class="calculator">
         <div class="display">
             <div class="display__history"></div>
-            <div class="display__result">0</div>
+
         </div>
         <div class="buttons">
             <button class="buttons__clear">C</button>
