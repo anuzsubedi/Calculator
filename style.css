@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Nova Square', sans-serif;
+    background-color: #f1cea6;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #e3deda;
+    height: 90vh;
+    width: 70vh;
+    max-width: 400px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 10px;
+    box-shadow: 5px 5px black;
+}
+
+.calculator__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90%;
+}
+
+.display {
+    background-color: #bfc0a1;
+    border-radius: 10px;
+    border: 5px solid black;
+    padding: 10px;
+    height: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+    width: 90%;
+    align-self: center;
+    margin-bottom: 10%;
+    position: relative;
+}
+
+.display__history,
+.display__result {
+    text-align: end;
+    font-size: 1rem;
+}
+
+.display__result {
+    font-size: 2rem;
+}
+
+.buttons {
+    align-self: center;
+    background-color: #d1bfb7;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    max-width: 100%;
+    width: 90%;
+    position: relative;
+    box-sizing: border-box;
+    bottom: 5%;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10%;
+}
+
+.buttons .buttons__number:nth-child(17) {
+    grid-column: span 2;
+}
+
+.buttons__number,
+.buttons__operation,
+.buttons__clear,
+.buttons__equal,
+.buttons__delete {
+    font-family: 'Nova Square', sans-serif;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    padding: 10px;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0 2px 4px #8a7f79;
+    aspect-ratio: 1/1;
+}
+
+.buttons__number:active,
+.buttons__operation:active,
+.buttons__clear:active,
+.buttons__equal:active,
+.buttons__delete:active {
+    transform: translateY(1px);
+}
+
+.buttons__number__zero {
+    aspect-ratio: unset;
+}
+
+.buttons__number {
+    border: 10px solid #e2d7cb;
+    background-color: #f6efe9;
+}
+
+.buttons__clear {
+    border: 10px solid #ac5221;
+    background-color: #dc6427;
+}
+
+.buttons__operation {
+    border: 10px solid #e39742;
+    background-color: #eaaf72;
+}
+
+.buttons__equal {
+    border: 10px solid #8a8194;
+    background-color: #a49eaa;
+}
+
+@media (max-width: 767px) {
+    .calculator {
+        width: 80%;
+        max-width: 400px;
+    }
+}

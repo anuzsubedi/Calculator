@@ -8,244 +8,40 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="style.css">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nova+Square&display=swap');
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent;
-        }
-
-        body {
-            font-family: 'Nova Square', sans-serif;
-        }
-
-        .calculator {
-            display: flex;
-            justify-content: flex-end;
-            flex-direction: column;
-            background-color: #e3deda;
-            height: 90vh;
-            width: 70vh;
-            max-width: 400px;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            border-radius: 10px;
-            box-shadow: 5px 5px black;
-
-        }
-
-        .display {
-            background-color: #bfc0a1;
-            border-radius: 10px;
-            border: 5px solid black;
-            margin: 10px;
-            padding: 10px;
-            height: 20%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            position: relative;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
-            width: 90%;
-            align-self: center;
-            margin-bottom: 10%;
-            position: relative;
-        }
-
-        .display__history {
-            text-align: end;
-            font-size: 1rem;
-        }
-
-        .display__result {
-            text-align: end;
-            font-size: 2rem;
-        }
-
-
-        .buttons {
-            align-self: center;
-            background-color: #d1bfb7;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            grid-gap: 10px;
-            max-width: 100%;
-            width: 90%;
-            position: relative;
-            box-sizing: border-box;
-            bottom: 5%;
-            padding: 10px;
-            border-radius: 10px;
-            margin-top: 10%;
-        }
-
-        .buttons .buttons__number:nth-child(17) {
-            grid-column: span 2;
-        }
-
-        .buttons__number,
-        .buttons__operation,
-        .buttons__clear,
-        .buttons__equal,
-        .buttons__delete {
-            font-family: 'Nova Square', sans-serif;
-            border-radius: 5px;
-            font-size: 1.5rem;
-            padding: 10px;
-            cursor: pointer;
-            outline: none;
-            cursor: pointer;
-            box-shadow: 0 2px 4px #8a7f79;
-            aspect-ratio: 1/1;
-        }
-
-        .buttons__number:active,
-        .buttons__operation:active,
-        .buttons__clear:active,
-        .buttons__equal:active,
-        .buttons__delete:active {
-            transform: translateY(1px);
-
-        }
-
-        .buttons__number__zero {
-            aspect-ratio: unset;
-            /* Remove aspect ratio for '0' button */
-        }
-
-        .buttons__number {
-            border: 10px solid #e2d7cb;
-            background-color: #f6efe9;
-        }
-
-        .buttons__clear {
-            border: 10px solid #ac5221;
-            background-color: #dc6427;
-        }
-
-        .buttons__operation {
-            border: 10px solid #e39742;
-            background-color: #eaaf72;
-        }
-
-        .buttons__equal {
-            border: 10px solid #8a8194;
-            background-color: #a49eaa;
-        }
-    </style>
 </head>
 
 <body>
     <div class="calculator">
-        <div class="top"></div>
-        <div class="display">
-            <div class="display__history"></div>
-            <div class="display__result">0</div>
-        </div>
-        <div class="buttons">
-            <button class="buttons__clear" onclick="clearDisplay()">C</button>
-            <button class="buttons__operation" onclick="deleteCharacter()">D</button>
-            <button class="buttons__operation" onclick="appendCharacter('**','^')">^</button>
-            <button class="buttons__operation" onclick="appendCharacter('÷')">÷</button>
-            <button class="buttons__number" onclick="appendCharacter('7')">7</button>
-            <button class="buttons__number" onclick="appendCharacter('8')">8</button>
-            <button class="buttons__number" onclick="appendCharacter('9')">9</button>
-            <button class="buttons__operation" onclick="appendCharacter('*')">*</button>
-            <button class="buttons__number" onclick="appendCharacter('4')">4</button>
-            <button class="buttons__number" onclick="appendCharacter('5')">5</button>
-            <button class="buttons__number" onclick="appendCharacter('6')">6</button>
-            <button class="buttons__operation" onclick="appendCharacter('-')">-</button>
-            <button class="buttons__number" onclick="appendCharacter('1')">1</button>
-            <button class="buttons__number" onclick="appendCharacter('2')">2</button>
-            <button class="buttons__number" onclick="appendCharacter('3')">3</button>
-            <button class="buttons__operation" onclick="appendCharacter('+')">+</button>
-            <button class="buttons__number__zero buttons__number" onclick="appendCharacter('0')">0</button>
-            <button class="buttons__number" onclick="appendCharacter('.')">.</button>
-            <button class="buttons__equal" onclick="finalEval()">=</button>
+
+        <div class="calculator__body">
+            <div class="display">
+                <div class="display__history"></div>
+                <div class="display__result">0</div>
+            </div>
+            <div class="buttons">
+                <button class="buttons__clear" onclick="clearDisplay()">C</button>
+                <button class="buttons__operation" onclick="deleteCharacter()">D</button>
+                <button class="buttons__operation" onclick="appendCharacter('**','^')">^</button>
+                <button class="buttons__operation" onclick="appendCharacter('÷')">÷</button>
+                <button class="buttons__number" onclick="appendCharacter('7')">7</button>
+                <button class="buttons__number" onclick="appendCharacter('8')">8</button>
+                <button class="buttons__number" onclick="appendCharacter('9')">9</button>
+                <button class="buttons__operation" onclick="appendCharacter('*')">*</button>
+                <button class="buttons__number" onclick="appendCharacter('4')">4</button>
+                <button class="buttons__number" onclick="appendCharacter('5')">5</button>
+                <button class="buttons__number" onclick="appendCharacter('6')">6</button>
+                <button class="buttons__operation" onclick="appendCharacter('-')">-</button>
+                <button class="buttons__number" onclick="appendCharacter('1')">1</button>
+                <button class="buttons__number" onclick="appendCharacter('2')">2</button>
+                <button class="buttons__number" onclick="appendCharacter('3')">3</button>
+                <button class="buttons__operation" onclick="appendCharacter('+')">+</button>
+                <button class="buttons__number__zero buttons__number" onclick="appendCharacter('0')">0</button>
+                <button class="buttons__number" onclick="appendCharacter('.')">.</button>
+                <button class="buttons__equal" onclick="finalEval()">=</button>
+            </div>
         </div>
     </div>
     <script src="script.js"></script>
-    <script>
-        let history = '';
-        let display = '';
-        let result = 0;
-
-        function appendCharacter(historycharacter, displaycharacter) {
-            history += historycharacter;
-            display += displaycharacter || historycharacter;
-            try {
-                evaluateExpression();
-            }
-            catch (err) {
-            }
-            updateDisplay();
-        }
-
-        function deleteCharacter() {
-            display = display.slice(0, -1);
-            if (history.slice(-2) == "**") {
-                history = history.slice(0, -2);
-            }
-            else {
-                history = history.slice(0, -1);
-            }
-            try {
-                evaluateExpression();
-            }
-            catch (err) {
-            }
-            updateDisplay();
-        }
-
-        function clearDisplay() {
-            history = '';
-            display = '';
-            result = 0;
-            updateDisplay();
-        }
-
-        function evaluateExpression() {
-            try { result = eval(history); }
-            catch (err) {
-                if (history.slice(-2) == "**") {
-                    result = eval(history.slice(0, -2));
-                }
-                else {
-                    result = eval(history.slice(0, -1));
-                }
-            }
-        }
-
-        function finalEval() {
-            try {
-                result = eval(history);
-            }
-            catch (err) {
-                try {
-                    history = history.slice(0, -1);
-                    display = display.slice(0, -1);
-                    result = eval(history);
-                }
-                catch (err) {
-                    history = '';
-                    display = '';
-                    result = "Math Error";
-                }
-            }
-            history = ''
-            updateDisplay();
-        }
-
-        function updateDisplay() {
-            document.querySelector('.display__history').textContent = history;
-            document.querySelector('.display__result').textContent = result;
-        }
-    </script>
 </body>
 
 </html>
