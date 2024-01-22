@@ -55,7 +55,7 @@
         .buttons__clear,
         .buttons__equal,
         .buttons__delete {
-            background-color: #f6efe9;
+
             border-radius: 5px;
             font-size: 1.5rem;
             padding: 10px;
@@ -79,6 +79,26 @@
             aspect-ratio: unset;
             /* Remove aspect ratio for '0' button */
         }
+
+        .buttons__number {
+            border: 10px solid #e2d7cb;
+            background-color: #f6efe9;
+        }
+
+        .buttons__clear {
+            border: 10px solid #ac5221;
+            background-color: #dc6427;
+        }
+
+        .buttons__operation {
+            border: 10px solid #e39742;
+            background-color: #eaaf72;
+        }
+
+        .buttons__equal {
+            border: 10px solid #8a8194;
+            background-color: #a49eaa;
+        }
     </style>
 </head>
 
@@ -90,7 +110,7 @@
         </div>
         <div class="buttons">
             <button class="buttons__clear">C</button>
-            <button class="buttons__delete">DEL</button>
+            <button class="buttons__operation">D</button>
             <button class="buttons__operation">^</button>
             <button class="buttons__operation">÷</button>
             <button class="buttons__number">7</button>
