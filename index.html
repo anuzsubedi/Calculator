@@ -74,6 +74,11 @@
             transform: translateY(1px);
 
         }
+
+        .buttons__number__zero {
+            aspect-ratio: unset;
+            /* Remove aspect ratio for '0' button */
+        }
     </style>
 </head>
 
@@ -100,7 +105,7 @@
             <button class="buttons__number">2</button>
             <button class="buttons__number">3</button>
             <button class="buttons__operation">+</button>
-            <button class="buttons__number">0</button>
+            <button class="buttons__number__zero buttons__number">0</button>
             <button class="buttons__number">.</button>
             <button class="buttons__equal">=</button>
         </div>
