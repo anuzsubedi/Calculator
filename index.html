@@ -15,6 +15,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
@@ -23,6 +24,7 @@
 
         .calculator {
             display: flex;
+            justify-items: flex-end;
             flex-direction: column;
             background-color: #e3deda;
             height: 90vh;
@@ -37,9 +39,9 @@
         }
 
         .display {
-            background-color: #e3deda;
+            background-color: #bfc0a1;
             border-radius: 10px;
-            border: 2px solid black;
+            border: 5px solid black;
             margin: 10px;
             padding: 10px;
             height: 20%;
@@ -48,10 +50,13 @@
             justify-content: space-between;
             top: 10%;
             position: relative;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) inset;
+            width: 90%;
+            align-self: center;
         }
 
-        .buttons {
 
+        .buttons {
             align-self: center;
             background-color: #d1bfb7;
             display: grid;
