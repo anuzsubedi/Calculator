@@ -137,4 +137,12 @@ body {
         max-width: 400px;
         max-height: 87vh;
     }
+
+    .buttons__number:active,
+    .buttons__operation:active,
+    .buttons__clear:active,
+    .buttons__equal:active,
+    .buttons__delete:active {
+        transform: translateY(3px);
+    }
 }
