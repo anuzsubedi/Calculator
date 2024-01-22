@@ -32,6 +32,21 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            border-radius: 10px;
+            box-shadow: 5px 5px black;
+        }
+
+        .display {
+            background-color: #e3deda;
+            border-radius: 10px;
+            border: 2px solid black;
+            margin: 10px;
+            padding: 10px;
+            height: 20%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            top: 10%;
         }
 
         .buttons {
@@ -47,6 +62,7 @@
             box-sizing: border-box;
             bottom: 5%;
             padding: 10px;
+            border-radius: 10px;
         }
 
         .buttons .buttons__number:nth-child(17) {
@@ -107,9 +123,10 @@
 
 <body>
     <div class="calculator">
+        <div class="top"></div>
         <div class="display">
             <div class="display__history"></div>
-
+            <div class="display__result">0</div>
         </div>
         <div class="buttons">
             <button class="buttons__clear">C</button>
