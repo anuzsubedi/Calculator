@@ -50,6 +50,8 @@ body {
     align-self: center;
     margin-bottom: 10%;
     position: relative;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .display__history,
