@@ -36,6 +36,7 @@
             transform: translate(-50%, -50%);
             border-radius: 10px;
             box-shadow: 5px 5px black;
+
         }
 
         .display {
@@ -54,6 +55,16 @@
             align-self: center;
             margin-bottom: 10%;
             position: relative;
+        }
+
+        .display__history {
+            text-align: end;
+            font-size: 1rem;
+        }
+
+        .display__result {
+            text-align: end;
+            font-size: 2rem;
         }
 
 
@@ -137,28 +148,59 @@
             <div class="display__result">0</div>
         </div>
         <div class="buttons">
-            <button class="buttons__clear">C</button>
-            <button class="buttons__operation">D</button>
-            <button class="buttons__operation">^</button>
-            <button class="buttons__operation">÷</button>
-            <button class="buttons__number">7</button>
-            <button class="buttons__number">8</button>
-            <button class="buttons__number">9</button>
-            <button class="buttons__operation">*</button>
-            <button class="buttons__number">4</button>
-            <button class="buttons__number">5</button>
-            <button class="buttons__number">6</button>
-            <button class="buttons__operation">-</button>
-            <button class="buttons__number">1</button>
-            <button class="buttons__number">2</button>
-            <button class="buttons__number">3</button>
-            <button class="buttons__operation">+</button>
-            <button class="buttons__number__zero buttons__number">0</button>
-            <button class="buttons__number">.</button>
-            <button class="buttons__equal">=</button>
+            <button class="buttons__clear" onclick="clearDisplay()">C</button>
+            <button class="buttons__operation" onclick="deleteCharacter()">D</button>
+            <button class="buttons__operation" onclick="appendCharacter('^')">^</button>
+            <button class="buttons__operation" onclick="appendCharacter('÷')">÷</button>
+            <button class="buttons__number" onclick="appendCharacter('7')">7</button>
+            <button class="buttons__number" onclick="appendCharacter('8')">8</button>
+            <button class="buttons__number" onclick="appendCharacter('9')">9</button>
+            <button class="buttons__operation" onclick="appendCharacter('*')">*</button>
+            <button class="buttons__number" onclick="appendCharacter('4')">4</button>
+            <button class="buttons__number" onclick="appendCharacter('5')">5</button>
+            <button class="buttons__number" onclick="appendCharacter('6')">6</button>
+            <button class="buttons__operation" onclick="appendCharacter('-')">-</button>
+            <button class="buttons__number" onclick="appendCharacter('1')">1</button>
+            <button class="buttons__number" onclick="appendCharacter('2')">2</button>
+            <button class="buttons__number" onclick="appendCharacter('3')">3</button>
+            <button class="buttons__operation" onclick="appendCharacter('+')">+</button>
+            <button class="buttons__number__zero buttons__number" onclick="appendCharacter('0')">0</button>
+            <button class="buttons__number" onclick="appendCharacter('.')">.</button>
+            <button class="buttons__equal" onclick="evaluateExpression()">=</button>
         </div>
     </div>
     <script src="script.js"></script>
+    <script>
+        let history = '';
+        let result = 0;
+
+        function appendCharacter(character) {
+            history += character;
+            evaluateExpression();
+            updateDisplay();
+        }
+
+        function deleteCharacter() {
+            history = history.slice(0, -1);
+            evaluateExpression();
+            updateDisplay();
+        }
+
+        function clearDisplay() {
+            history = '';
+            result = 0;
+            updateDisplay();
+        }
+
+        function evaluateExpression() {
+            result = eval(history);
+        }
+
+        function updateDisplay() {
+            document.querySelector('.display__history').textContent = history;
+            document.querySelector('.display__result').textContent = result;
+        }
+    </script>
 </body>
 
 </html>
