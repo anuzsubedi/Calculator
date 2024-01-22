@@ -166,7 +166,7 @@
             <button class="buttons__operation" onclick="appendCharacter('+')">+</button>
             <button class="buttons__number__zero buttons__number" onclick="appendCharacter('0')">0</button>
             <button class="buttons__number" onclick="appendCharacter('.')">.</button>
-            <button class="buttons__equal" onclick="evaluateExpression()">=</button>
+            <button class="buttons__equal" onclick="finalEval()">=</button>
         </div>
     </div>
     <script src="script.js"></script>
@@ -176,7 +176,11 @@
 
         function appendCharacter(character) {
             history += character;
-            evaluateExpression();
+            try {
+                evaluateExpression();
+            }
+            catch (err) {
+            }
             updateDisplay();
         }
 
@@ -194,6 +198,24 @@
 
         function evaluateExpression() {
             result = eval(history);
+        }
+
+        function finalEval() {
+            try {
+                result = eval(history);
+            }
+            catch (err) {
+                try {
+                    history = history.slice(0, -1);
+                    result = eval(history);
+                }
+                catch (err) {
+                    history = '';
+                    result = "Math Error";
+                }
+            }
+            history = ''
+            updateDisplay();
         }
 
         function updateDisplay() {
