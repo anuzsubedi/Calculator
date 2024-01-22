@@ -133,5 +133,6 @@ body {
     .calculator {
         width: 80%;
         max-width: 400px;
+        max-height: 87vh;
     }
 }
