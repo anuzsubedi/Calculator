@@ -150,7 +150,7 @@
         <div class="buttons">
             <button class="buttons__clear" onclick="clearDisplay()">C</button>
             <button class="buttons__operation" onclick="deleteCharacter()">D</button>
-            <button class="buttons__operation" onclick="appendCharacter('^')">^</button>
+            <button class="buttons__operation" onclick="appendCharacter('**','^')">^</button>
             <button class="buttons__operation" onclick="appendCharacter('÷')">÷</button>
             <button class="buttons__number" onclick="appendCharacter('7')">7</button>
             <button class="buttons__number" onclick="appendCharacter('8')">8</button>
@@ -172,10 +172,12 @@
     <script src="script.js"></script>
     <script>
         let history = '';
+        let display = '';
         let result = 0;
 
-        function appendCharacter(character) {
-            history += character;
+        function appendCharacter(historycharacter, displaycharacter) {
+            history += historycharacter;
+            display += displaycharacter || historycharacter;
             try {
                 evaluateExpression();
             }
@@ -185,19 +187,38 @@
         }
 
         function deleteCharacter() {
-            history = history.slice(0, -1);
-            evaluateExpression();
+            display = display.slice(0, -1);
+            if (history.slice(-2) == "**") {
+                history = history.slice(0, -2);
+            }
+            else {
+                history = history.slice(0, -1);
+            }
+            try {
+                evaluateExpression();
+            }
+            catch (err) {
+            }
             updateDisplay();
         }
 
         function clearDisplay() {
             history = '';
+            display = '';
             result = 0;
             updateDisplay();
         }
 
         function evaluateExpression() {
-            result = eval(history);
+            try { result = eval(history); }
+            catch (err) {
+                if (history.slice(-2) == "**") {
+                    result = eval(history.slice(0, -2));
+                }
+                else {
+                    result = eval(history.slice(0, -1));
+                }
+            }
         }
 
         function finalEval() {
@@ -207,10 +228,12 @@
             catch (err) {
                 try {
                     history = history.slice(0, -1);
+                    display = display.slice(0, -1);
                     result = eval(history);
                 }
                 catch (err) {
                     history = '';
+                    display = '';
                     result = "Math Error";
                 }
             }
