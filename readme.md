@@ -1,6 +1,6 @@
 # Calculator App
 
-This is a simple calculator web application built using HTML, CSS, and JavaScript. You can view the live preview of the app [here](https://anuzsubedi.github.io/calculator/).
+This is a simple calculator web application built using HTML, CSS, and JavaScript. You can view the live preview of the app [here](https://anuzsubedi.github.io/calculator-css/).
 
 ## Inspiration
 
